@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\1\Source\Repos\Rowyll\ClubManager\ClubManager\obj\Debug\
+C:\Users\artem\Source\Repos\Rowyll\ClubManager\ClubManager\obj\Debug\
 ClubManager
 none
 false
 DEBUG;TRACE
-C:\Users\1\Source\Repos\Rowyll\ClubManager\ClubManager\App.xaml
+C:\Users\artem\Source\Repos\Rowyll\ClubManager\ClubManager\App.xaml
 82091744134
 2-1957146511
 22483885186
-18-1148864959
+18121813567
 Authorization.xaml;RentList.xaml;PcRent.xaml;ClientAdd.xaml;PcList.xaml;ClientList.xaml;MainWindow.xaml;ClientEdit.xaml;
 
-False
+True
 
