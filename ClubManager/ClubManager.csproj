@@ -210,6 +210,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\notepad_negate.png" />
+    <Resource Include="Resources\74577_negate.png" />
+    <Resource Include="Resources\3487097_negate.png" />
+    <Resource Include="Resources\game-controller-14896.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
