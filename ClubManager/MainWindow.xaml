@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubManager"
         mc:Ignorable="d"
-        Icon="D:\Downloads\game-controller-14896.ico"
+        Icon="Resources/game-controller-14896.ico"
         Title="MainWindow" Height="540" Width="960" ResizeMode="NoResize" Closed="Window_Closed">
     <StackPanel>
         <Border BorderThickness="0 2 0 2" BorderBrush="Black">
@@ -18,19 +18,19 @@
         <StackPanel Width="660" Orientation="Horizontal" Margin="0 75 0 0">
             <Button x:Name="ClientButton" HorizontalAlignment="Left" Click="ClientButton_Click" >
                 <StackPanel>
-                    <Image Source="D:\Downloads\74577_negate.png" />
+                    <Image Source="Resources/74577_negate.png" />
                     <TextBlock Text="Список клиентов" />
                 </StackPanel>
             </Button>
             <Button x:Name="PcButton" Margin="125 0 0 0" Click="PcButton_Click" >
                 <StackPanel>
-                    <Image Source="D:\Downloads\3487097_negate.png" />
+                    <Image Source="Resources/3487097_negate.png" />
                     <TextBlock Text="Список компьютеров" />
                 </StackPanel>
             </Button>
             <Button x:Name="RentButton" Margin="125 0 0 0" Click="RentButton_Click" >
                 <StackPanel>
-                    <Image Source="D:\Downloads\notepad_negate.png" />
+                    <Image Source="Resources/notepad_negate.png" />
                     <TextBlock Text="Список бронирований" />
                 </StackPanel>
             </Button>

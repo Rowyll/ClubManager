@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubManager"
         mc:Ignorable="d"
-        Icon="D:\Downloads\game-controller-14896.ico"
+        Icon="Resources/game-controller-14896.ico"
         Title="ClubManager" Height="540" Width="960" ResizeMode="NoResize" Closed="Window_Closed" >
     <StackPanel>
         <Label Foreground="Black" Content="ClubManager" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 68 0 0" />

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubManager"
         mc:Ignorable="d"
-        Icon="D:\Downloads\game-controller-14896.ico"
+        Icon="Resources/game-controller-14896.ico"
         Title="ClientEdit" Height="540" Width="534" ResizeMode="NoResize" Closed="Window_Closed">
     <Window.Resources>
         <Style TargetType="Label">
