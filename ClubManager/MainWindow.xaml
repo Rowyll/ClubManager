@@ -1,0 +1,39 @@
+﻿<Window x:Class="ClubManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClubManager"
+        mc:Ignorable="d"
+        Icon="D:\Downloads\game-controller-14896.ico"
+        Title="MainWindow" Height="540" Width="960" ResizeMode="NoResize" Closed="Window_Closed">
+    <StackPanel>
+        <Border BorderThickness="0 2 0 2" BorderBrush="Black">
+            <DockPanel Height="45" >
+                <Label FontSize="18" Margin="5 5 0 0" x:Name="UserTitle" Content="UserTitle" DockPanel.Dock="Left"/>
+                <Button Click="ButtonExit_Click" FontSize="18" Margin="0 0 5 0" HorizontalAlignment="Right" Height="35" Width="69" DockPanel.Dock="Right" Content="Выход" Foreground="White" />
+            </DockPanel>
+        </Border>
+        <Label x:Name="UserName" Content="Добро пожаловать, {UserName}!" FontSize="30" HorizontalAlignment="Center" Margin="0 75 0 0" />
+        <StackPanel Width="660" Orientation="Horizontal" Margin="0 75 0 0">
+            <Button x:Name="ClientButton" HorizontalAlignment="Left" Click="ClientButton_Click" >
+                <StackPanel>
+                    <Image Source="D:\Downloads\74577_negate.png" />
+                    <TextBlock Text="Список клиентов" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="PcButton" Margin="125 0 0 0" Click="PcButton_Click" >
+                <StackPanel>
+                    <Image Source="D:\Downloads\3487097_negate.png" />
+                    <TextBlock Text="Список компьютеров" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="RentButton" Margin="125 0 0 0" Click="RentButton_Click" >
+                <StackPanel>
+                    <Image Source="D:\Downloads\notepad_negate.png" />
+                    <TextBlock Text="Список бронирований" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

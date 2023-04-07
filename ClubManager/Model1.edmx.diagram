@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a7fffd6d582c400da6d3f22c9862c51b" Name="Diagram1">
+        <EntityTypeShape EntityType="ClubManagerModel.Clients" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubManagerModel.PC" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubManagerModel.PC_Types" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubManagerModel.Rents" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubManagerModel.Staff" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubManagerModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ClubManagerModel.FK__PC__ClientId__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="ClubManagerModel.FK__Rents__ClientId__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="ClubManagerModel.FK__PC__Type__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="ClubManagerModel.FK__Rents__IdPC__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="ClubManagerModel.FK__Rents__AdminId__0D7A0286" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

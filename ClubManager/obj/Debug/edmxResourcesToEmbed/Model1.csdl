@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClubManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Discount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PC" Relationship="Self.FK__PC__ClientId__08B54D69" FromRole="Clients" ToRole="PC" />
+    <NavigationProperty Name="Rents" Relationship="Self.FK__Rents__ClientId__0B91BA14" FromRole="Clients" ToRole="Rents" />
+  </EntityType>
+  <EntityType Name="PC">
+    <Key>
+      <PropertyRef Name="IdPC" />
+    </Key>
+    <Property Name="IdPC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClientId" Type="Int32" />
+    <Property Name="RentDate" Type="DateTime" Precision="3" />
+    <Property Name="Hours" Type="Int32" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__PC__ClientId__08B54D69" FromRole="PC" ToRole="Clients" />
+    <NavigationProperty Name="PC_Types" Relationship="Self.FK__PC__Type__07C12930" FromRole="PC" ToRole="PC_Types" />
+    <NavigationProperty Name="Rents" Relationship="Self.FK__Rents__IdPC__0C85DE4D" FromRole="PC" ToRole="Rents" />
+  </EntityType>
+  <EntityType Name="PC_Types">
+    <Key>
+      <PropertyRef Name="IdType" />
+    </Key>
+    <Property Name="IdType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CPU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GPU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HZ" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PC" Relationship="Self.FK__PC__Type__07C12930" FromRole="PC_Types" ToRole="PC" />
+  </EntityType>
+  <EntityType Name="Rents">
+    <Key>
+      <PropertyRef Name="IdRent" />
+    </Key>
+    <Property Name="IdRent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="IdPC" Type="Int32" Nullable="false" />
+    <Property Name="AdminId" Type="Int32" Nullable="false" />
+    <Property Name="RentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hours" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__Rents__ClientId__0B91BA14" FromRole="Rents" ToRole="Clients" />
+    <NavigationProperty Name="PC" Relationship="Self.FK__Rents__IdPC__0C85DE4D" FromRole="Rents" ToRole="PC" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK__Rents__AdminId__0D7A0286" FromRole="Rents" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="IdStaff" />
+    </Key>
+    <Property Name="IdStaff" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JobTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Rents" Relationship="Self.FK__Rents__AdminId__0D7A0286" FromRole="Staff" ToRole="Rents" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__PC__ClientId__08B54D69">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+    <End Role="PC" Type="Self.PC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="PC">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rents__ClientId__0B91BA14">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PC__Type__07C12930">
+    <End Role="PC_Types" Type="Self.PC_Types" Multiplicity="1" />
+    <End Role="PC" Type="Self.PC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PC_Types">
+        <PropertyRef Name="IdType" />
+      </Principal>
+      <Dependent Role="PC">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rents__IdPC__0C85DE4D">
+    <End Role="PC" Type="Self.PC" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PC">
+        <PropertyRef Name="IdPC" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="IdPC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rents__AdminId__0D7A0286">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IdStaff" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ClubManagerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="PC" EntityType="Self.PC" />
+    <EntitySet Name="PC_Types" EntityType="Self.PC_Types" />
+    <EntitySet Name="Rents" EntityType="Self.Rents" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__PC__ClientId__08B54D69" Association="Self.FK__PC__ClientId__08B54D69">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="PC" EntitySet="PC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rents__ClientId__0B91BA14" Association="Self.FK__Rents__ClientId__0B91BA14">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PC__Type__07C12930" Association="Self.FK__PC__Type__07C12930">
+      <End Role="PC_Types" EntitySet="PC_Types" />
+      <End Role="PC" EntitySet="PC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rents__IdPC__0C85DE4D" Association="Self.FK__Rents__IdPC__0C85DE4D">
+      <End Role="PC" EntitySet="PC" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rents__AdminId__0D7A0286" Association="Self.FK__Rents__AdminId__0D7A0286">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

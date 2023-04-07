@@ -1,0 +1,37 @@
+﻿<Window x:Class="ClubManager.PcRent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClubManager"
+        mc:Ignorable="d"
+        Icon="D:\Downloads\game-controller-14896.ico"
+        Title="PcRent" Height="625" Width="534" ResizeMode="NoResize" Closed="Window_Closed">
+    <Window.Resources>
+        <Style TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+    </Window.Resources>
+    <StackPanel>
+        <Border BorderThickness="0 2 0 2" BorderBrush="Black">
+            <DockPanel Height="45" >
+                <Label FontSize="18" Margin="5 5 0 0" x:Name="UserTitle" Content="UserTitle" DockPanel.Dock="Left"/>
+                <Button Click="ButtonExit_Click" FontSize="18" Margin="0 0 5 0" HorizontalAlignment="Right" Height="35" Width="69" DockPanel.Dock="Right" Content="Назад" Foreground="White" />
+            </DockPanel>
+        </Border>
+        <Label Content="Бронирование компьютера" FontSize="30" HorizontalAlignment="Center" Margin="0 20 0 0" />
+        <StackPanel Width="500">
+            <Label Content="ID Клиента" />
+            <TextBox x:Name="clientIdField" />
+            <Label Content="ID Компьютера" />
+            <TextBox x:Name="pcIdField" TextChanged="TextField_TextChanged" />
+            <Label Content="Дата бронирования" />
+            <TextBox x:Name="rentDateField" IsEnabled="False" />
+            <Label Content="Часы" />
+            <TextBox x:Name="hoursField" TextChanged="TextField_TextChanged" />
+            <Label Content="Стоимость" />
+            <TextBox x:Name="priceField" IsEnabled="False" />
+            <Button Width="169" Height="44" Margin="0 20 0 0" Content="Забронировать" Click="ButtonRent_Click" />
+        </StackPanel>
+    </StackPanel>
+</Window>
