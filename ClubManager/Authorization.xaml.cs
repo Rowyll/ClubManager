@@ -3,6 +3,9 @@ using System.Windows;
 
 namespace ClubManager
 {
+    /// <summary>
+    /// Окно для авторизации
+    /// </summary>
     public partial class Authorization : Window
     {
         public Authorization()

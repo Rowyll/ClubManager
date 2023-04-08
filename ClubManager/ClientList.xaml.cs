@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace ClubManager
 {
+    /// <summary>
+    /// Окно для отображения всех клиентов
+    /// </summary>
     public partial class ClientList : Window
     {
         public ClientList()

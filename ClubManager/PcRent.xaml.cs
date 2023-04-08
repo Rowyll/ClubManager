@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace ClubManager
 {
+    /// <summary>
+    /// Окно для бронирования компьютеров
+    /// </summary>
     public partial class PcRent : Window
     {
         public PcRent()

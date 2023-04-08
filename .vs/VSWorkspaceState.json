@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ClubManager"
   ],
-  "SelectedNode": "\\ClubManager.sln",
+  "SelectedNode": "\\ClubManager\\PcRent.xaml",
   "PreviewInSolutionExplorer": false
 }

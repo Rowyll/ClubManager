@@ -3,6 +3,9 @@ using System.Windows;
 
 namespace ClubManager
 {
+    /// <summary>
+    /// Главное окно с доступом к основным функциям приложения
+    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()

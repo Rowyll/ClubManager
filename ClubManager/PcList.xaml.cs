@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace ClubManager
 {
+    /// <summary>
+    /// Окно для отображения всех доступных компьютеров
+    /// </summary>
     public partial class PcList : Window
     {
         public PcList()

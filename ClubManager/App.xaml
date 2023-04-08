@@ -58,5 +58,51 @@
             <Setter Property="Height" Value="33" />
             <Setter Property="BorderBrush" Value="Black" />
         </Style>
+        <Style TargetType="Button" x:Key="escapeButton">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Content" Value="Назад" />
+            <Setter Property="Margin" Value="0 0 5 0" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Width" Value="69" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="DockPanel.Dock" Value="Right" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#454545" />
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="Black" 
+                        CornerRadius="5" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Label" x:Key="userTitle">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Margin" Value="5 5 0 0" />
+            <Setter Property="Content" Value="UserTitle" />
+            <Setter Property="DockPanel.Dock" Value="Left" />
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="Width" Value="930" />
+            <Setter Property="Height" Value="395" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
     </Application.Resources>
 </Application>

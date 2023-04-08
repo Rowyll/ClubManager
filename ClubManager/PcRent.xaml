@@ -9,20 +9,20 @@
         Title="PcRent" Height="625" Width="534" ResizeMode="NoResize" Closed="Window_Closed">
     <Window.Resources>
         <Style TargetType="Label">
-        <Setter Property="FontSize" Value="24" />
-    </Style>
+            <Setter Property="FontSize" Value="24" />
+        </Style>
     </Window.Resources>
     <StackPanel>
         <Border BorderThickness="0 2 0 2" BorderBrush="Black">
             <DockPanel Height="45" >
-                <Label FontSize="18" Margin="5 5 0 0" x:Name="UserTitle" Content="UserTitle" DockPanel.Dock="Left"/>
-                <Button Click="ButtonExit_Click" FontSize="18" Margin="0 0 5 0" HorizontalAlignment="Right" Height="35" Width="69" DockPanel.Dock="Right" Content="Назад" Foreground="White" />
+                <Label x:Name="UserTitle" Style="{StaticResource userTitle}"/>
+                <Button Click="ButtonExit_Click" Style="{StaticResource escapeButton}" />
             </DockPanel>
         </Border>
         <Label Content="Бронирование компьютера" FontSize="30" HorizontalAlignment="Center" Margin="0 20 0 0" />
         <StackPanel Width="500">
             <Label Content="ID Клиента" />
-            <TextBox x:Name="clientIdField" />
+            <TextBox x:Name="clientIdField" TextChanged="TextField_TextChanged" />
             <Label Content="ID Компьютера" />
             <TextBox x:Name="pcIdField" TextChanged="TextField_TextChanged" />
             <Label Content="Дата бронирования" />

@@ -7,48 +7,18 @@
         mc:Ignorable="d"
         Icon="Resources/game-controller-14896.ico"
         Title="RentList" Height="540" Width="960" ResizeMode="NoResize" Closed="Window_Closed">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="#454545" />
-            <Setter Property="Width" Value="169" />
-            <Setter Property="Height" Value="44" />
-            <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Name="border" 
-                        BorderThickness="1"
-                        Padding="4,2" 
-                        BorderBrush="Black" 
-                        CornerRadius="5" 
-                        Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="FontSize" Value="24" />
-            <Setter Property="Foreground" Value="White" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Black" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        
-    </Window.Resources>
     <StackPanel>
         <Border BorderThickness="0 2 0 2" BorderBrush="Black">
             <DockPanel Height="45" >
-                <Label FontSize="18" Margin="5 5 0 0" x:Name="UserTitle" Content="UserTitle" DockPanel.Dock="Left"/>
-                <Button Click="ButtonExit_Click" FontSize="18" Margin="0 0 5 0" HorizontalAlignment="Right" Height="35" Width="69" DockPanel.Dock="Right" Content="Назад" Foreground="White" />
+                <Label x:Name="UserTitle" Style="{StaticResource userTitle}"/>
+                <Button Click="ButtonExit_Click" Style="{StaticResource escapeButton}"/>
             </DockPanel>
         </Border>
         <StackPanel Orientation="Horizontal">
             <Label Content="Список бронирований" FontSize="30" />
         </StackPanel>
         <StackPanel>
-            <ListView x:Name="rentGrid" Width="930" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="2" Height="395" >
+            <ListView x:Name="rentGrid">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=IdRent}" Width="40">Id</GridViewColumn>

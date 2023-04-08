@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace ClubManager
 {
+    /// <summary>
+    /// Окно для изменения имеющихся клиентов
+    /// </summary>
     public partial class ClientEdit : Window
     {
         public ClientEdit()

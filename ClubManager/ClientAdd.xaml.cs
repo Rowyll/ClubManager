@@ -3,6 +3,9 @@ using System.Windows;
 
 namespace ClubManager
 {
+    /// <summary>
+    /// Окно для добавления новых клиентов
+    /// </summary>
     public partial class ClientAdd : Window
     {
         public ClientAdd()

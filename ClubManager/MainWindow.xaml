@@ -10,8 +10,8 @@
     <StackPanel>
         <Border BorderThickness="0 2 0 2" BorderBrush="Black">
             <DockPanel Height="45" >
-                <Label FontSize="18" Margin="5 5 0 0" x:Name="UserTitle" Content="UserTitle" DockPanel.Dock="Left"/>
-                <Button Click="ButtonExit_Click" FontSize="18" Margin="0 0 5 0" HorizontalAlignment="Right" Height="35" Width="69" DockPanel.Dock="Right" Content="Выход" Foreground="White" />
+                <Label x:Name="UserTitle" Style="{StaticResource userTitle}"/>
+                <Button Click="ButtonExit_Click" Content="Выход" Style="{StaticResource escapeButton}"/>
             </DockPanel>
         </Border>
         <Label x:Name="UserName" Content="Добро пожаловать, {UserName}!" FontSize="30" HorizontalAlignment="Center" Margin="0 75 0 0" />

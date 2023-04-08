@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace ClubManager
 {
+    /// <summary>
+    /// Окно для отображения арендованных компьютеров
+    /// </summary>
     public partial class RentList : Window
     {
         public RentList()
