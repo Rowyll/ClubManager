@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media;
 
 namespace ClubManager
 {
@@ -24,32 +25,39 @@ namespace ClubManager
         {
             using (ClubManagerEntities db = new ClubManagerEntities())
             { 
-                foreach(var currentPC in db.PC)
+                var pc_list = db.PC.ToList();
+                foreach (var pc in pc_list)
                 {
-                    if (currentPC.Status == "Забронирован")
+                    if(pc.Status == "Забронирован")
                     {
-                        var rentStart = currentPC.RentDate;
-                        var rentHours = currentPC.Hours;
-                        var addedTime = rentStart.Value.AddHours(rentHours.Value);
-                        if (addedTime < DateTime.Now && addedTime.AddMinutes(10) > DateTime.Now)
+                        if (pc.RentDate.Value.AddHours(Convert.ToDouble(pc.Hours.Value)) < DateTime.Now && pc.RentDate.Value.AddMinutes(15) > DateTime.Now)
                         {
-                            currentPC.Status = "Ожидание";
-                            currentPC.ClientId = null;
-                            currentPC.RentDate = null;
-                            currentPC.Hours = null;
+                            pc.Hours = null;
+                            pc.ClientId = null;
+                            pc.RentDate = null;
+                            pc.Status = "Ожидание";
+                        }
+                        else if (pc.RentDate.Value.AddHours(Convert.ToDouble(pc.Hours.Value)) < DateTime.Now && pc.RentDate.Value.AddMinutes(15) < DateTime.Now)
+                        {
+                            pc.Hours = null;
+                            pc.ClientId = null;
+                            pc.RentDate = null;
+                            pc.Status = "Свободен";
                         }
                     }
-                    else if (currentPC.Status == "Ожидание")
+                    else if(pc.Status == "Ожидание")
                     {
-                        currentPC.Status = "Свободен";
-                        currentPC.ClientId = null;
-                        currentPC.RentDate = null;
-                        currentPC.Hours = null;
+                        if (pc.RentDate.Value.AddHours(Convert.ToDouble(pc.Hours.Value)) < DateTime.Now && pc.RentDate.Value.AddMinutes(15) < DateTime.Now)
+                        {
+                            pc.Hours = null;
+                            pc.ClientId = null;
+                            pc.RentDate = null;
+                            pc.Status = "Свободен";
+                        }
                     }
                 }
                 db.SaveChanges();
-                var pc = db.PC.ToList();
-                pcGrid.ItemsSource = pc;
+                pcGrid.ItemsSource = pc_list;
             }
         }
 
