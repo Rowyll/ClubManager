@@ -48,13 +48,27 @@ namespace ClubManager
         {
             using (ClubManagerEntities db = new ClubManagerEntities())
             {
-                int clientId = Convert.ToInt32(idField.Text);
-                var selectedClient = db.Clients.Where(x => x.IdClient == clientId).FirstOrDefault();
-                selectedClient.FullName = nameField.Text;
-                selectedClient.Age = Convert.ToInt32(ageField.Text);
-                selectedClient.Hours = Convert.ToInt32(hoursField.Text);
-                db.SaveChanges();
-                MessageBox.Show("Данные успешно сохранены");
+                if (idField.Text != "" && nameField.Text != "" && ageField.Text != "" && hoursField.Text != "")
+                {
+                    int clientId = Convert.ToInt32(idField.Text);
+                    if (db.Clients.Count(x => x.IdClient== clientId) == 1)
+                    {
+                        var selectedClient = db.Clients.Where(x => x.IdClient == clientId).FirstOrDefault();
+                        selectedClient.FullName = nameField.Text;
+                        selectedClient.Age = Convert.ToInt32(ageField.Text);
+                        selectedClient.Hours = Convert.ToInt32(hoursField.Text);
+                        db.SaveChanges();
+                        MessageBox.Show("Данные успешно сохранены");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Клиента с таким Id не существует");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Заполните все поля");
+                }
             }
         }
 

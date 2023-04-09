@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClubManager"
         mc:Ignorable="d"
         Icon="Resources/game-controller-14896.ico"
-        Title="ClientEdit" Height="540" Width="534" ResizeMode="NoResize" Closed="Window_Closed">
+        Title="Изменение клиента" Height="540" Width="534" ResizeMode="NoResize" Closed="Window_Closed">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="24" />

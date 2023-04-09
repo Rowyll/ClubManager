@@ -28,14 +28,22 @@ namespace ClubManager
         {
             using (ClubManagerEntities db = new ClubManagerEntities())
             {
-                try
+                if(nameField.Text != "" && ageField.Text != "" && hoursField.Text != "")
                 {
-                    db.Clients.Add(new Clients { FullName = nameField.Text, Age = Convert.ToInt16(ageField.Text), Hours = Convert.ToInt16(hoursField.Text), Discount = 0 });
-                    db.SaveChanges();
-                    MessageBox.Show("Данные успешно сохранены");
+                    try
+                    {
+                        db.Clients.Add(new Clients { FullName = nameField.Text, Age = Convert.ToInt16(ageField.Text), Hours = Convert.ToInt16(hoursField.Text), Discount = 0 });
+                        db.SaveChanges();
+                        MessageBox.Show("Данные успешно сохранены");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Неверные данные");
+                    }
                 }
-                catch{
-                    MessageBox.Show("Неверные данные");
+                else
+                {
+                    MessageBox.Show("Заполните все поля");
                 }
             }
         }

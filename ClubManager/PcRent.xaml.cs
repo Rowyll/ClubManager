@@ -70,34 +70,57 @@ namespace ClubManager
         {
             using (ClubManagerEntities db = new ClubManagerEntities())
             {
-                int currentClientId = Convert.ToInt16(clientIdField.Text);
-                var pc_list = db.PC.ToList();
-                if (db.PC.Count(x => x.ClientId == currentClientId) < 1)
+                if (clientIdField.Text != "" && pcIdField.Text != "" && hoursField.Text != "")
                 {
+                    int currentClientId = Convert.ToInt16(clientIdField.Text);
                     int pcId = Convert.ToInt16(pcIdField.Text);
-                    var currentPC = db.PC.Where(x => x.IdPC == pcId).FirstOrDefault();
-                    if (currentPC.Status == "Свободен")
+                    var pc_list = db.PC.ToList();
+                    if(db.Clients.Count(x => x.IdClient == currentClientId) == 1)
                     {
-                        db.Rents.Add(new Rents { ClientId = Convert.ToInt16(clientIdField.Text), IdPC = Convert.ToInt16(pcIdField.Text), AdminId = CurrentUser.currentUserId, RentDate = DateTime.Parse(rentDateField.Text), Hours = Convert.ToInt16(hoursField.Text), Price = Convert.ToInt16(priceField.Text) });
-                        var currentClient = db.Clients.Where(x => x.IdClient == currentClientId).FirstOrDefault();
-                        int currentPcId = Convert.ToInt16(pcIdField.Text);
-                        currentClient.Hours += Convert.ToInt16(hoursField.Text);
-                        currentPC.Status = "Забронирован";
-                        currentPC.RentDate = DateTime.Parse(rentDateField.Text);
-                        currentPC.Hours = Convert.ToInt16(hoursField.Text);
-                        currentPC.ClientId = Convert.ToInt16(clientIdField.Text);
-                        db.SaveChanges();
-                        MessageBox.Show("Данные успешно сохранены");
+                        if (db.PC.Count(x => x.IdPC == pcId) == 1)
+                        {
+                            if (db.PC.Count(x => x.ClientId == currentClientId) < 1)
+                            {
+
+                                var currentPC = db.PC.Where(x => x.IdPC == pcId).FirstOrDefault();
+                                if (currentPC.Status == "Свободен")
+                                {
+                                    db.Rents.Add(new Rents { ClientId = Convert.ToInt16(clientIdField.Text), IdPC = Convert.ToInt16(pcIdField.Text), AdminId = CurrentUser.currentUserId, RentDate = DateTime.Parse(rentDateField.Text), Hours = Convert.ToInt16(hoursField.Text), Price = Convert.ToInt16(priceField.Text) });
+                                    var currentClient = db.Clients.Where(x => x.IdClient == currentClientId).FirstOrDefault();
+                                    int currentPcId = Convert.ToInt16(pcIdField.Text);
+                                    currentClient.Hours += Convert.ToInt16(hoursField.Text);
+                                    currentPC.Status = "Забронирован";
+                                    currentPC.RentDate = DateTime.Parse(rentDateField.Text);
+                                    currentPC.Hours = Convert.ToInt16(hoursField.Text);
+                                    currentPC.ClientId = Convert.ToInt16(clientIdField.Text);
+                                    db.SaveChanges();
+                                    MessageBox.Show("Данные успешно сохранены");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Компьютер занят или находится в ожидании");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Данный клиент уже арендовал компьютер");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Компьютера с таким Id не существует");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Компьютер занят или находится в ожидании");
+                        MessageBox.Show("Клиента с таким Id не существует");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Данный клиент уже арендовал компьютер");
+                    MessageBox.Show("Заполните все поля");
                 }
+                
             }
         }
 

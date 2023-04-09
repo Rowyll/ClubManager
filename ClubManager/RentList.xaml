@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClubManager"
         mc:Ignorable="d"
         Icon="Resources/game-controller-14896.ico"
-        Title="RentList" Height="540" Width="960" ResizeMode="NoResize" Closed="Window_Closed">
+        Title="История аренды" Height="540" Width="960" ResizeMode="NoResize" Closed="Window_Closed">
     <StackPanel>
         <Border BorderThickness="0 2 0 2" BorderBrush="Black">
             <DockPanel Height="45" >

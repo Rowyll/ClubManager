@@ -30,10 +30,10 @@ namespace ClubManager
                             return;
                         }
                     }
-                    MessageBox.Show("Неверные данные");
+                    MessageBox.Show("Некорректный логин или пароль");
                 }
                 else
-                    MessageBox.Show("Введите данные");
+                    MessageBox.Show("Заполните все поля");
             }
         }
         private void Window_Closed(object sender, EventArgs e)

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClubManager"
         mc:Ignorable="d"
         Icon="Resources/game-controller-14896.ico"
-        Title="ClientAdd" Height="470" Width="534" ResizeMode="NoResize" Closed="Window_Closed">
+        Title="Добавление клиента" Height="470" Width="534" ResizeMode="NoResize" Closed="Window_Closed">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="24" />
